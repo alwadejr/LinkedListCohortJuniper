@@ -18,18 +18,15 @@ namespace SinglyLinkedLists
             if (values.Length == 0)
             {
                 first = new SinglyLinkedListNode(null);
-                last = new SinglyLinkedListNode(null);
             }
             else
             {
                 first = new SinglyLinkedListNode(values[0] as string);
-                last = new SinglyLinkedListNode(values[values.Length - 1] as string);
             }
         }
 
         private SinglyLinkedListNode first;
         private SinglyLinkedListNode last;
-        private SinglyLinkedListNode firstNode;
 
         // READ: http://msdn.microsoft.com/en-us/library/6x16t2tx.aspx
         public string this[int i]
@@ -69,7 +66,9 @@ namespace SinglyLinkedLists
 
         public string ElementAt(int index)
         {
-            throw new NotImplementedException();
+
+            return null;
+            
         }
 
         public string First()

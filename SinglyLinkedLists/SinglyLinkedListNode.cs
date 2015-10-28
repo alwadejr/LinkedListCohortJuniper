@@ -18,6 +18,7 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/aa287786(v=vs.71).aspx
         private SinglyLinkedListNode next;
         public SinglyLinkedListNode Next
+
         {
             get { return next; }
             set {
@@ -64,15 +65,42 @@ namespace SinglyLinkedLists
             return this.value;
         }
 
+        public override bool Equals(Object obj)
+        {
+            //Check for null and compare run-time types.
+            if (obj == null) { return false; }
+            SinglyLinkedListNode newNode = obj as SinglyLinkedListNode;
+            if(newNode == null)
+            {
+                return false;
+            } else if(newNode.Value == value)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         // READ: http://msdn.microsoft.com/en-us/library/system.icomparable.compareto.aspx
         public int CompareTo(Object obj)
         {
-            throw new NotImplementedException();
+            if(obj == null) return 1;
+
+            SinglyLinkedListNode otherNode = obj as SinglyLinkedListNode;
+            if (otherNode != null)
+            {
+                return value.CompareTo(otherNode.Value);
+            }
+            else
+            {
+                throw new ArgumentException("Object is not a Node");
+            }
         }
+ 
 
         public bool IsLast()
         {
-            if(next == null)
+            if(this.Next == null)
             {
                 return true;
             }
