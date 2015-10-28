@@ -20,12 +20,13 @@ namespace SinglyLinkedLists
         public SinglyLinkedListNode Next
         {
             get { return next; }
-            set { 
-                  if(this == value)
-                     throw new ArgumentException();
-               else {
-                    next = value;
+            set {
+                if (this == value)
+                {
+                    throw new ArgumentException();
                 }
+                next = value;
+             
             }
          }
 
@@ -56,8 +57,11 @@ namespace SinglyLinkedLists
            
             // Used by the visualizer:
             allNodes.Add(this);
-           
-           
+       }
+
+        public override string ToString()
+        {
+            return this.value;
         }
 
         // READ: http://msdn.microsoft.com/en-us/library/system.icomparable.compareto.aspx
@@ -68,7 +72,14 @@ namespace SinglyLinkedLists
 
         public bool IsLast()
         {
-            throw new NotImplementedException();
+            if(next == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

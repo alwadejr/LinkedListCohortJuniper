@@ -15,8 +15,21 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/aa691335(v=vs.71).aspx
         public SinglyLinkedList(params object[] values)
         {
-            throw new NotImplementedException();
+            if (values.Length == 0)
+            {
+                first = new SinglyLinkedListNode(null);
+                last = new SinglyLinkedListNode(null);
+            }
+            else
+            {
+                first = new SinglyLinkedListNode(values[0] as string);
+                last = new SinglyLinkedListNode(values[values.Length - 1] as string);
+            }
         }
+
+        private SinglyLinkedListNode first;
+        private SinglyLinkedListNode last;
+        private SinglyLinkedListNode firstNode;
 
         // READ: http://msdn.microsoft.com/en-us/library/6x16t2tx.aspx
         public string this[int i]
@@ -37,7 +50,15 @@ namespace SinglyLinkedLists
 
         public void AddLast(string value)
         {
-            throw new NotImplementedException();
+            if(first == null)
+            {
+                first = new SinglyLinkedListNode(value);
+            }
+            else
+            {
+                last = new SinglyLinkedListNode(value);
+            }
+              
         }
 
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
@@ -53,7 +74,14 @@ namespace SinglyLinkedLists
 
         public string First()
         {
-            throw new NotImplementedException();
+            if(first == null)
+            {
+                return null;
+            }
+            else
+            {
+                return first.Value;
+            }
         }
 
         public int IndexOf(string value)
